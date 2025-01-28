@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./assets/css/output.css" rel="stylesheet">
+</head>
+<body>
+  <div id="intro" class="md:grid md:grid-cols-5 md:gap-4 bg-slate-900 font-mono">
+    <div class="max-md:h-[100vh] place-content-center col-span-2">
+      <h1 class="text-2xl font-bold text-center text-yellow-50">
+        ellen yufei martin
+      </h1>
+      <br/>
+      <h2 class="text-sm text-center text-yellow-50">software engineer, designer, creator</h2>
+    </div>
+    <!-- <div class="place-content-center col-span-3 min-h-screen items-center bg-gradient-to-br from-purple-200 to-indigo-400"> -->
+    <div id="details" class="place-content-center col-span-3 min-h-screen items-center">
+        <div class="w-10/12 mx-auto h-[80vh]">
+          <!-- tab buttons -->
+          <div 
+            role="tablist"
+            aria-label="tabs"
+            class="relative w-max mx-auto h-12 grid grid-cols-3 items-center px-[3px] rounded-md bg-gray-700 overflow-hidden shadow-2xl shadow-900/20 transition"
+          >
+            <div class="absolute indicator h-11 my-auto top-0 bottom-0 left-0 rounded-md border-yellow-50 border-solid border-2 shadow-md"></div>
+            <button
+              role="tab"
+              aria-selected="true"
+              aria-controls="panel-1"
+              id="tab-1"
+              tabindex="0"
+              class="relative block h-10 px-6 tab rounded-full"
+            >
+              <span class="text-yellow-50">about</span>
+            </button>
+            <button
+              role="tab"
+              aria-selected="false"
+              aria-controls="panel-2"
+              id="tab-2"
+              tabindex="-1"
+              class="relative block h-10 px-6 tab rounded-md"
+            >
+              <span class="text-yellow-50">experience</span>
+            </button>
+            <button
+              role="tab"
+              aria-selected="false"
+              aria-controls="panel-3"
+              id="tab-3"
+              tabindex="-1"
+              class="relative block h-10 px-6 tab rounded-md"
+            >
+              <span class="text-yellow-50">contact</span>
+            </button>
+          </div>
+          <!-- tabpanels -->
+          <div class="h-[85%] mt-6 relative rounded-3xl border-yellow-50 border-solid border-2 p-2">
+            <div
+              role="tabpanel"
+              id="panel-1"
+              class="absolute top-0 tab-panel p-6 transition duration-300 mb-2 overflow-y-auto max-h-[100%]"
+            >
+              <p class="text-yellow-50">hello world! my name is ellen, and i am a senior software engineer with a passion for scalable architectures, beautiful designs, and well-written code. i have 5 years of experience in full-stack development, cloud architecture, and backend development, and i am currently working at zip as a senior engineer on the payments team bringing cutting-edge software to the world of procurement. You can find my resume here, or check out the experience page for more details.  </p>
+              <p class="mt-4 text-yellow-50">i grew up in the hot subtropical city of guangzhou, china, then moved to toronto, canada at the age of 12, where i still call home. i attended the university of toronto, st. george campus and received an honours bachelors degree with high distinction, specializing in computer science.</p>
+              <p class="mt-4 text-yellow-50">I'm a passionate gamer and pop culture enjoyer, and i love to draw using my ipad & procreate in my spare time. i am also a yimby, rock climber, and cyclist, and i love to spend my free time working out and maintaining my physical fitness, as well as exploring the outdoors with my partner and son. i also dabble in crafting projects, and i'm still working on my 2024 temperature blanket with my trusty crochet hooks. follow me on instagram for more of my adventures!</p>
+            </div>
+            <div
+              role="tabpanel"
+              id="panel-2"
+              class="absolute top-0 invisible opacity-0 tab-panel p-6 transition duration-300 mb-2 text-yellow-50 overflow-y-auto max-h-[100%]"
+            >
+              <div class="mb-5">
+                <h3 class="text-lg font-medium underline">zip</h3>
+                <h4 class="text-sm mt-2">jan 2025 - </h4>
+                <div class="pl-4 mt-2">
+                  <p>senior software engineer on the payments team.</p>
+                </div>
+              </div>
+              <div class="mb-5">
+                <h3 class="text-lg font-medium underline">rbc</h3>
+                <h4 class="text-sm mt-2">apr 2023 - jan 2025</h4>
+                <div class="pl-4 mt-2">
+                  <p>staff cloud engineer on the cloud control engineering team.</p>
+                  <p>architected, designed, & owned projects in the cloud program to improve processes related to finance and cloud chargeback.</p>
+                  <p>maintained and implemented features for cloud program internal services.</p>
+                  <p>python, aws serverless, kubernetes, azure, databricks</p>
+                </div>
+              </div>
+              <div class="mb-5">
+                <h3 class="text-lg font-medium underline">lever</h3>
+                <h4 class="text-sm mt-2">jun 2021 - apr 2023</h4>
+                <div class="pl-4 mt-2">
+                  <p>software engineer iii on the api & integrations team, then the role-based access control team.</p>
+                  <p>maintained & implemented new features both on the front & back end for a large-scale talent acquisition web app.</p>
+                  <p>typescript, coffeescript, derbyjs, nodejs</p>
+                </div>
+              </div>
+              <div class="mb-5">
+                <h3 class="text-lg font-medium underline">aws</h3>
+                <h4 class="text-sm mt-2">jun 2020 - jun 2021</h4>
+                <div class="pl-4 mt-2">
+                  <p>software development engineer on the aws directory services, identity sync team.</p>
+                  <p>implemented a new backend service to sync objects between on-prem microsoft active directory & aws-hosted active directory.</p>
+                  <p>led project to expand reach of service to new aws regions.</p>
+                  <p>python, aws lambda, aws step functions</p>
+                </div>
+              </div>
+            </div>
+            <div
+              role="tabpanel"
+              id="panel-3"
+              class="absolute top-0 invisible opacity-0 tab-panel p-6 transition duration-150 mb-2 overflow-y-auto max-h-[100%]"
+            >
+              <p class=" text-yellow-50">Under Construction.</p>
+            </div>
+          </div>
+      </div>
+                                                   
+      
+   </div>
+  </div>
+  <script type="module" src="./main.ts"></script>
+</body>
+</html>

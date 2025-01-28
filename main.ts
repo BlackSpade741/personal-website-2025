@@ -80,16 +80,33 @@ document.addEventListener('scroll', async () => {
 })
 
 // contact form/emails
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+const EMAILJS_SERVICE_ID = "service_d1bemyf";
+const EMAILJS_TEMPLATE_ID = "template_thyv13l";
+
+const SUBMIT_SUCCESS_MSG = document.getElementById("submit-success");
+const SUBMIT_FAILURE_MSG = document.getElementById("submit-failure");
+SUBMIT_SUCCESS_MSG.style.display = 'none';
+SUBMIT_FAILURE_MSG.style.display = 'none';
 
 emailjs.init({
-  publicKey: "",
+  publicKey: EMAILJS_PUBLIC_KEY,
 });
 
-function sendContactEmail() {
-  emailjs.send("service_d1bemyf","template_thyv13l",{
-    from_name: "John Smith",
-    to_name: "Ellen Martin",
-    message: "Hello World!",
-    reply_to: "chenellen007@gmail.com",
-    });
+async function submitContactFormHandler(event: Event) {
+  event.preventDefault();
+
+  try {
+    await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, this);
+    console.log('Successfully sent email');
+    SUBMIT_SUCCESS_MSG.style.display = 'block'; 
+    SUBMIT_FAILURE_MSG.style.display = 'none';
+    this.reset();
+  } catch (error) {
+    console.log('Failed to send email via EmailJS', error)
+    SUBMIT_FAILURE_MSG.style.display = 'block';
+    SUBMIT_SUCCESS_MSG.style.display = 'none';
+  }
 }
+
+document.getElementById('contact-form')?.addEventListener('submit', submitContactFormHandler)

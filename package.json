@@ -4,7 +4,6 @@
   "description": "Personal Website 2025",
   "main": "index.js",
   "scripts": {
-    "tailwind": "npx tailwindcss -i ./assets/css/input.css -o ./assets/css/output.css --watch",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"

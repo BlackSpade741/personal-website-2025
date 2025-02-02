@@ -1,31 +1,38 @@
-import "./assets/css/output.css";
+import "./assets/css/styles.css";
 import emailjs from '@emailjs/browser';
 
 // tabs
 
-let tabs = document.querySelectorAll(".tab")
-let indicator = document.querySelector(".indicator")
-let panels = document.querySelectorAll(".tab-panel")
+let tabs = document.querySelectorAll(".tab");
+let indicator = document.querySelector(".indicator");
+let panels = document.querySelectorAll(".tab-panel");
+var currentTab = "panel-1";
 
 if (indicator) {
-  indicator["style"].width = tabs[0].getBoundingClientRect().width + 'px'
+  indicator["style"].width = tabs[0].getBoundingClientRect().width + 'px';
 
   if (tabs && tabs.length > 0 && tabs[0].parentElement) {
-    indicator["style"].left = tabs[0].getBoundingClientRect().left - tabs[0].parentElement.getBoundingClientRect().left + 'px'
+    indicator["style"].left = tabs[0].getBoundingClientRect().left - tabs[0].parentElement.getBoundingClientRect().left + 'px';
+  }
+}
+
+function addIndicatorToTab(tab: Element) {
+  indicator["style"].width = tab.getBoundingClientRect().width + 'px';
+
+  if (tab && tab.parentElement) {
+    indicator["style"].left = tab.getBoundingClientRect().left - tab.parentElement.getBoundingClientRect().left + 'px';
   }
 }
 
 
 tabs.forEach(tab =>{
   tab.addEventListener("click", ()=>{
-    let tabTarget = tab.getAttribute("aria-controls")
+    let tabTarget = tab.getAttribute("aria-controls");
+    currentTab = tabTarget || "panel-1";
+    console.log('currentTab:', currentTab);
 
     if (indicator) {
-      indicator["style"].width = tab.getBoundingClientRect().width + 'px'
-
-      if (tab && tab.parentElement) {
-        indicator["style"].left = tab.getBoundingClientRect().left - tab.parentElement.getBoundingClientRect().left + 'px'
-      }
+      addIndicatorToTab(tab);
     }
 
 
@@ -45,7 +52,7 @@ tabs.forEach(tab =>{
 // autoscroll
 var intro = document.getElementById("intro");
 var details = document.getElementById("details");
-var scrolling = false
+var scrolling = false;
 
 async function scrollSectionIntoView (section: HTMLElement | null) {
   scrolling = true
@@ -55,29 +62,38 @@ async function scrollSectionIntoView (section: HTMLElement | null) {
     inline: "nearest"
   });
   await new Promise(r => setTimeout(r, 100));
-  scrolling = false
+  scrolling = false;
 }
 
-var introY = intro?.getBoundingClientRect()['y'] || 0
-var detailsY = details?.getBoundingClientRect()['y'] || 0
+var introY = intro?.getBoundingClientRect()['y'] || 0;
+var detailsY = details?.getBoundingClientRect()['y'] || 0;
 
 document.addEventListener('scroll', async () => {
-  let newIntroY = intro?.getBoundingClientRect()['y'] || 0
-  let newDetailsY = details?.getBoundingClientRect()['y'] || 0
+  let newIntroY = intro?.getBoundingClientRect()['y'] || 0;
+  let newDetailsY = details?.getBoundingClientRect()['y'] || 0;
 
   if (!scrolling) {
     if (newIntroY - introY > 0) {
       // console.log("Scroll Up")
-      await scrollSectionIntoView(intro)
+      await scrollSectionIntoView(intro);
     } else {
       // console.log("Scroll Down")
-      await scrollSectionIntoView(details)
+      await scrollSectionIntoView(details);
     }
   }
 
-  introY = newIntroY
-  detailsY = newDetailsY
+  introY = newIntroY;
+  detailsY = newDetailsY;
 })
+
+window.addEventListener("resize", () => {
+  tabs.forEach(tab => {
+    let tabTarget = tab.getAttribute("aria-controls");
+    if (tabTarget == currentTab) {
+      addIndicatorToTab(tab);
+    }
+  });
+});
 
 // contact form/emails
 const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
@@ -109,4 +125,4 @@ async function submitContactFormHandler(event: Event) {
   }
 }
 
-document.getElementById('contact-form')?.addEventListener('submit', submitContactFormHandler)
+document.getElementById('contact-form')?.addEventListener('submit', submitContactFormHandler);

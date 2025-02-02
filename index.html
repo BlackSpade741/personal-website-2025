@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./assets/css/styles.css" rel="stylesheet">
 </head>
 <body>
   <div id="intro" class="md:grid md:grid-cols-5 md:gap-4 bg-slate-900 font-mono">
@@ -21,7 +22,7 @@
           <div 
             role="tablist"
             aria-label="tabs"
-            class="relative w-max mx-auto h-12 grid grid-cols-3 items-center px-[3px] rounded-md bg-slate-700 overflow-hidden shadow-2xl shadow-900/20 transition"
+            class="relative mx-auto h-12 grid grid-cols-3 items-center px-[3px] rounded-md bg-slate-700 overflow-hidden shadow-2xl shadow-900/20 transition"
           >
             <div class="absolute indicator h-11 my-auto top-0 bottom-0 left-0 rounded-md border-yellow-50 border-solid border-2 shadow-md"></div>
             <button
@@ -30,7 +31,7 @@
               aria-controls="panel-1"
               id="tab-1"
               tabindex="0"
-              class="relative block h-10 px-6 tab rounded-full"
+              class="relative block h-10 max-px-6 tab rounded-full max-[450px]:text-xs"
             >
               <span class="text-yellow-50">about</span>
             </button>
@@ -40,7 +41,7 @@
               aria-controls="panel-2"
               id="tab-2"
               tabindex="-1"
-              class="relative block h-10 px-6 tab rounded-md"
+              class="relative block h-10 max-px-6 tab rounded-md max-[450px]:text-xs"
             >
               <span class="text-yellow-50">experience</span>
             </button>
@@ -50,7 +51,7 @@
               aria-controls="panel-3"
               id="tab-3"
               tabindex="-1"
-              class="relative block h-10 px-6 tab rounded-md"
+              class="relative block h-10 max-px-6 tab rounded-md max-[450px]:text-xs"
             >
               <span class="text-yellow-50">contact</span>
             </button>
